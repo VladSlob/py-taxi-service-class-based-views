@@ -11,10 +11,6 @@ class Manufacturer(models.Model):
 class Driver(AbstractUser):
     license_number = models.CharField(max_length=255, unique=True)
 
-    def get_absolute_url(self) -> object:
-        return reverse("taxi:driver-detail", args=[str(self.id)])
-
-
 class Car(models.Model):
     model = models.CharField(max_length=255)
     manufacturer = models.ForeignKey(
